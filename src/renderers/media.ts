@@ -191,6 +191,18 @@ export const renderMediaEntries = async () => {
 
       entry.appendChild(mediaRow)
 
+      const mediaCount = images.length + videos.length
+      if (mediaCount > 1) {
+        const hint = document.createElement('div')
+        hint.className = 'media-swipe-hint'
+        hint.appendChild(document.createTextNode('swipe '))
+        const arrow = document.createElement('span')
+        arrow.className = 'media-swipe-arrow'
+        arrow.textContent = '-->'
+        hint.appendChild(arrow)
+        entry.appendChild(hint)
+      }
+
       wrapper.appendChild(entry)
     })
   } catch (error) {
