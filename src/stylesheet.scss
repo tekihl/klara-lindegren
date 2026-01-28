@@ -138,6 +138,10 @@ h2 {
     background-size: cover;
 }
 
+.sanity-content-wrapper {
+    padding-bottom: 80px;
+}
+
 .hero-mainpage {
     background-image: url('/src/assets/images/IMG_5157.JPG');
 }
@@ -155,6 +159,8 @@ h2 {
     align-items: center;
     justify-content: center;
 }
+
+
 
 .hero-logo img {
     width: 80vw;
@@ -212,12 +218,22 @@ h2 {
 
 .contact-section {
     display: flex;
+    width: 100vw;
+    min-height: 80vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'junicode';
     font-size: 14pt;
-    max-width: 60vw;
+    max-width: 100vw;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #contact-links {
@@ -738,10 +754,14 @@ body.upcoming-open {
         z-index: 20;
     }
 
+    .contact-card {
+        padding: 50px;
+    }
+
     .hero-menu .nav-wrapper {
         display: flex;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .hero-menu {
@@ -764,7 +784,6 @@ body.upcoming-open {
 
     .media-wrapper {
         padding: 20px;
-        padding-bottom: 80px;
     }
 
 
