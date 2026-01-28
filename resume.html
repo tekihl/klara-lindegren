@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>klara-lindegren-vite</title>
+    <style>
+        body {
+            background: #ffffff;
+            color: #070707;
+        }
+
+        .main-wrapper {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .sanity-content-wrapper {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .css-ready .main-wrapper {
+            opacity: 1;
+        }
+
+        .css-ready.sanity-ready .sanity-content-wrapper {
+            opacity: 1;
+        }
+
+        .upcoming-panel {
+            display: none;
+        }
+
+        .upcoming-panel.is-ready {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div class="main-wrapper">
+        <section class="hero">
+            <div class="hero-overlay">
+                <nav class="hero-menu" aria-label="Main">
+                    <div class="nav-wrapper">
+                        <a class="nav-link home-link" href="index.html">*</a>
+                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="resume.html">Resumé</a>
+                        <a class="nav-link" href="media.html">Media</a>
+                        <a class="nav-link" href="reviews-honors.html">Reviews & Honors</a>
+                    </div>
+                    <div class="upcoming-wrapper">
+                        <a class="nav-link upcoming-toggle" href="#">Upcoming</a>
+                    </div>
+                </nav>
+                <div class="sanity-content-wrapper">
+                    <section class="resume-section">
+                        <div class="desc-edu-wrapper">
+                            <div id="resume-description" class="resume-category"></div>
+                            <div id="resume-education" class="resume-category"></div>
+                        </div>
+                        <div id="resume-work" class="resume-category"></div>
+                        <div id="resume-roles" class="resume-category"></div>
+                    </section>
+                </div>
+
+
+            </div>
+        </section>
+
+    </div>
+    <div class="upcoming-panel" id="upcoming-panel" aria-hidden="true">
+        <div class="upcoming-panel__backdrop" data-upcoming-close></div>
+        <div class="upcoming-panel__sheet" role="dialog" aria-label="Upcoming">
+            <button class="upcoming-panel__close" type="button" data-upcoming-close>close</button>
+            <div class="upcoming-panel__list" id="upcoming-list"></div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+        window.addEventListener('load', () => {
+            document.documentElement.classList.add('css-ready')
+        })
+    </script>
+</body>
+
+</html>
