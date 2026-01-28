@@ -226,7 +226,7 @@ export const renderResume = async () => {
         const list = document.createElement('ul')
         list.className = 'resume-roles-list'
 
-        listItems.forEach((item, index) => {
+        listItems.forEach((item) => {
           const li = document.createElement('li')
           li.className = 'resume-role'
 

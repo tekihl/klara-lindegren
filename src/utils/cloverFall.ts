@@ -43,7 +43,6 @@ export const spawnClover = (x: number, y: number, delayMs = 0) => {
 
 export const initCloverStream = () => {
     let armTimer: number | undefined
-    let dropTimer: number | undefined
     let isDropping = false
     let lastMoveX = 0
     let lastMoveY = 0
@@ -60,7 +59,6 @@ export const initCloverStream = () => {
 
         if (Date.now() - lastMoveTime > dropPauseMs) {
             isDropping = false
-            dropTimer = undefined
             return
         }
 
@@ -68,7 +66,7 @@ export const initCloverStream = () => {
         const offsetY = Math.random() * spread - spread / 2
         spawnClover(lastMoveX + offsetX, lastMoveY + offsetY)
 
-        dropTimer = window.setTimeout(dropLoop, dropIntervalMs)
+        window.setTimeout(dropLoop, dropIntervalMs)
     }
 
     document.addEventListener('mousemove', (event) => {
@@ -84,7 +82,6 @@ export const initCloverStream = () => {
 
         if (speed < minSpeed) {
             isDropping = false
-            dropTimer = undefined
             if (armTimer) {
                 window.clearTimeout(armTimer)
                 armTimer = undefined
