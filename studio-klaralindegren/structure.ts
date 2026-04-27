@@ -11,9 +11,6 @@ export const structure = (S: StructureBuilder) =>
             .title('Resume')
             .items([
               S.documentTypeListItem('resumeDescription').title('Description'),
-              S.documentTypeListItem('resumeEducation').title('Education'),
-              S.documentTypeListItem('resumeWork').title('Work'),
-              S.documentTypeListItem('resumeRoleRepertoire').title('Role Repertoire'),
             ]),
         ),
       S.divider(),

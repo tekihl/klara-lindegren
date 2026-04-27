@@ -6,10 +6,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        contact: resolve(__dirname, 'contact.html'),
+        kontakt: resolve(__dirname, 'kontakt.html'),
         resume: resolve(__dirname, 'resume.html'),
         media: resolve(__dirname, 'media.html'),
-        reviews: resolve(__dirname, 'reviews-honors.html'),
+        recensioner: resolve(__dirname, 'recensioner.html'),
       },
     },
   },

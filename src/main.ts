@@ -30,12 +30,7 @@ if (document.querySelector('#contact-links')) {
   sanityPromises.push(renderContactLinks())
 }
 
-if (
-  document.querySelector('#resume-description') ||
-  document.querySelector('#resume-education') ||
-  document.querySelector('#resume-work') ||
-  document.querySelector('#resume-roles')
-) {
+if (document.querySelector('#resume-description')) {
   sanityPromises.push(renderResume())
 }
 

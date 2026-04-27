@@ -158,6 +158,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 }
 
 
@@ -241,7 +242,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 30px;
+    gap: 20px;
     margin-top: 20px;
     max-width: 500px;
 }
@@ -262,25 +263,35 @@ h2 {
 .media-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    align-items: top;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 20px 30px 60px 30px;
-    gap: 40px;
+    gap: 20px;
 }
 
 .media-entry {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0px;
+}
+
+.media-section-heading {
+    font-size: 14pt;
+    font-weight: 400;
+    text-align: center;
+    margin: 20px 0 0;
 }
 
 .media-header {
     display: inline-flex;
     align-items: baseline;
+    justify-content: center;
     gap: 0px;
     color: $primary-color;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .media-heading-group {
@@ -316,28 +327,9 @@ h2 {
 
 .media-row {
     display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    justify-content: center;
     padding-bottom: 5px;
-    scroll-snap-type: x proximity;
 
-}
-
-.media-swipe-hint {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 10pt;
-    color: #000000;
-    margin-top: 2px;
-    line-height: 1em;
-}
-
-.media-swipe-arrow {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    line-height: 0.5em;
 }
 
 .media-thumb {
@@ -350,6 +342,27 @@ h2 {
     flex: 0 0 auto;
 }
 
+.media-more-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+    font-family: 'Junicode', serif;
+    font-style: italic;
+    font-size: 14pt;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.media-thumb:hover .media-more-overlay,
+.media-thumb:focus-visible .media-more-overlay {
+    opacity: 1;
+}
+
 .media-image {
     flex: 0 0 auto;
     height: 320px;
@@ -359,24 +372,22 @@ h2 {
     display: block;
 }
 
-.media-video-thumb .media-play-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-family: 'Junicode', serif;
-    font-style: italic;
-    font-size: 14pt;
-    background: rgba(0, 0, 0, 0.35);
-}
-
 .media-video-placeholder {
     height: 320px;
     width: 480px;
     max-width: 80vw;
     background: #111111;
+}
+
+@media screen and (max-width: 720px) {
+    .media-more-overlay.is-scroll-visible {
+        opacity: 1;
+    }
+
+    .media-thumb:hover .media-more-overlay,
+    .media-thumb:focus-visible .media-more-overlay {
+        opacity: 1;
+    }
 }
 
 /* Lightbox */
@@ -422,18 +433,20 @@ h2 {
 }
 
 .lightbox-caption {
-    position: absolute;
-    top: -24px;
-    left: 0;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
     font-size: 10pt;
     color: #ffffff;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
 }
 
 .lightbox-caption-item {
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .lightbox-video {
@@ -444,15 +457,17 @@ h2 {
 }
 
 .lightbox-controls {
-    grid-column: 2;
-    grid-row: 2;
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    z-index: 2;
     display: flex;
     gap: 30px;
-    justify-self: center;
-    margin-top: 5px;
+    transform: translateX(-50%);
 }
 
-.lightbox-controls button {
+.lightbox-controls button,
+.lightbox-close {
     background: transparent;
     border: none;
     color: #ffffff;
@@ -463,9 +478,9 @@ h2 {
 }
 
 .lightbox-close {
-    position: absolute;
-    top: -28px;
-    right: 0;
+    position: fixed;
+    top: 20px;
+    right: 20px;
 }
 
 .lightbox-controls button:disabled {
@@ -476,12 +491,11 @@ h2 {
 /* Reviews */
 .reviews-wrapper {
     display: flex;
+    flex-direction: column;
     font-family: 'junicode';
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: top;
-    gap: 50px 50px;
-    padding: 60px 50px 50px 80px;
+    align-items: center;
+    gap: 50px;
+    padding: 60px 50px 50px;
 }
 
 .review-card {
@@ -489,7 +503,7 @@ h2 {
     flex-direction: column;
     gap: 14px;
     text-align: center;
-    width: 280px;
+    width: 350px;
 }
 
 .review-heading {
@@ -519,9 +533,10 @@ h2 {
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 720px) {
     .reviews-wrapper {
         gap: 40px;
+        padding: 40px 20px 100px;
     }
 }
 
@@ -663,13 +678,14 @@ body.upcoming-open {
 
 .resume-section {
     display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: top;
-    font-size: 12pt;
-    width: 100%;
+    width: 100vw;
+    min-height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14pt;
+    max-width: 100vw;
     padding: 30px;
-    gap: 60px;
 }
 
 .resume-category {
@@ -687,8 +703,41 @@ body.upcoming-open {
 }
 
 #resume-description {
-    max-width: 400px;
+    max-width: 500px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.resume-description-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
     margin-bottom: 20px;
+}
+
+.resume-description-tab {
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: $primary-color;
+    font-family: 'Junicode', serif;
+    font-size: 14pt;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.resume-description-tab:not(.is-active) {
+    color: $soft-color;
+}
+
+.resume-description-text {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    white-space: pre-line;
+}
+
+.resume-description-text.is-visible {
+    opacity: 1;
 }
 
 .resume-entry {
@@ -705,21 +754,6 @@ body.upcoming-open {
 .resume-year {
     font-weight: 400;
 }
-
-#resume-roles h3 {
-    font-size: 12pt;
-    line-height: 1.75em;
-}
-
-.resume-roles-list {
-    list-style: none;
-    padding: 0;
-    margin: 12px 0 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
 
 /* Responsive */
 @media screen and (max-width: calc(45px + $main-width)) {

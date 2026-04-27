@@ -46,7 +46,7 @@ const buildLightbox = () => {
 
   controls.appendChild(prev)
   controls.appendChild(next)
-  controls.appendChild(close)
+  content.appendChild(close)
 
   document.body.appendChild(overlay)
 
