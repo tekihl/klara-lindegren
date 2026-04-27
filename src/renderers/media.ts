@@ -136,7 +136,7 @@ export const renderMediaEntries = async () => {
     )
 
     if (photoItems.length) {
-      wrapper.appendChild(createSectionHeading('Photos'))
+      wrapper.appendChild(createSectionHeading('Foto'))
     }
 
     photoItems.forEach((item) => {
@@ -203,7 +203,7 @@ export const renderMediaEntries = async () => {
     })
 
     if (videoItems.length) {
-      wrapper.appendChild(createSectionHeading('Videos'))
+      wrapper.appendChild(createSectionHeading('Video'))
     }
 
     videoItems.forEach(({ item, videoUrl, thumbnailUrl }, index) => {
