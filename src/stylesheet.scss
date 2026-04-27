@@ -578,6 +578,13 @@ h2 {
         gap: 40px;
         padding: 40px 20px 100px;
     }
+
+    .hero-mainpage {
+        background-size: cover;
+        background-position: 60% 20%;
+        height: 100vh;
+    }
+
 }
 
 .posts-grid {
@@ -823,8 +830,6 @@ body.upcoming-open {
     }
 
     .hero-mainpage {
-        background-image: url('/src/assets/images/IMG_5145.JPG');
-        //background-position: 60% 20%;
         background-size: cover;
         height: 100vh;
 

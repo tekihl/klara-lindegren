@@ -5,6 +5,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-lightitalic.otf") format("opentype");
@@ -12,6 +13,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-regular.otf") format("opentype");
@@ -19,6 +21,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-italic.otf") format("opentype");
@@ -26,6 +29,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-medium.otf") format("opentype");
@@ -33,6 +37,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-mediumitalic.otf") format("opentype");
@@ -40,6 +45,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-bold.otf") format("opentype");
@@ -47,6 +53,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-bolditalic.otf") format("opentype");
@@ -54,6 +61,7 @@
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Inter";
   src: url("/src/assets/fonts/Inter_18pt-ExtraLight.ttf") format("opentype");
@@ -61,6 +69,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Inter";
   src: url("/src/assets/fonts/Inter_18pt-Regular.ttf") format("opentype");
@@ -68,6 +77,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 /* Variables */
 /* Base */
 * {
@@ -167,7 +177,7 @@ h2 {
 
 .nav-link:hover {
   -webkit-text-decoration: dotted;
-          text-decoration: dotted;
+  text-decoration: dotted;
   color: gray;
 }
 
@@ -324,7 +334,7 @@ h2 {
   width: auto;
   max-width: 80vw;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 
@@ -339,11 +349,13 @@ h2 {
   .media-more-overlay.is-scroll-visible {
     opacity: 1;
   }
+
   .media-thumb:hover .media-more-overlay,
   .media-thumb:focus-visible .media-more-overlay {
     opacity: 1;
   }
 }
+
 /* Lightbox */
 .lightbox {
   position: fixed;
@@ -517,6 +529,7 @@ h2 {
   transition: ease-in-out 0.3s;
   margin-top: 5px;
 }
+
 .review-link:hover {
   transform: translateX(15px);
 }
@@ -527,6 +540,7 @@ h2 {
     padding: 40px 20px 100px;
   }
 }
+
 .posts-grid {
   display: grid;
   gap: 16px;
@@ -688,6 +702,7 @@ body.upcoming-open {
 .resume-category {
   max-width: none;
 }
+
 .resume-category h2 {
   margin-bottom: 10px;
 }
@@ -757,38 +772,45 @@ body.upcoming-open {
     width: 97vw;
     padding: 20px;
   }
+
   .hero {
     min-height: 70vh;
   }
+
   .hero-mainpage {
-    background-image: url("/src/assets/images/IMG_5145.JPG");
     background-size: cover;
     height: 100vh;
   }
+
   .hero-logo img {
     width: min(82vw, 420px);
   }
+
   .upcoming-wrapper {
     position: fixed;
     right: 30px;
     bottom: 25px;
     z-index: 20;
   }
+
   .hero-menu .nav-wrapper {
     display: flex;
     width: 100%;
     justify-content: space-between;
   }
+
   .resume-section {
     display: flex;
     flex-direction: column;
     padding: 30px;
   }
+
   .reviews-wrapper {
     gap: 40px 50px;
     padding: 30px 0 100px;
   }
 }
+
 .clover-drop {
   position: fixed;
   left: 0;
@@ -806,18 +828,24 @@ body.upcoming-open {
   0% {
     transform: translate(-50%, -50%) translateX(0) translateY(0) rotate(0deg);
   }
+
   45% {
     transform: translate(-50%, -50%) translateX(calc(var(--drift, 0px) * 0.45)) translateY(calc((100vh - var(--start-y, 0px)) * 0.35)) rotate(calc(var(--spin, 0deg) * 0.6));
   }
+
   100% {
     transform: translate(-50%, -50%) translateX(var(--drift, 0px)) translateY(calc(100vh - var(--start-y, 0px))) rotate(var(--spin, 0deg));
   }
 }
+
 @keyframes clover-fade {
   from {
     opacity: 0.8;
   }
+
   to {
     opacity: 0;
   }
-}/*# sourceMappingURL=stylesheet.css.map */
+}
+
+/*# sourceMappingURL=stylesheet.css.map */
