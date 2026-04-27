@@ -32,17 +32,18 @@ const buildLightbox = () => {
   const prev = document.createElement('button')
   prev.type = 'button'
   prev.className = 'lightbox-prev'
-  prev.textContent = 'prev'
+  prev.textContent = '<--'
 
   const next = document.createElement('button')
   next.type = 'button'
   next.className = 'lightbox-next'
-  next.textContent = 'next'
+  next.textContent = '-->'
 
   const close = document.createElement('button')
   close.type = 'button'
   close.className = 'lightbox-close'
-  close.textContent = 'close'
+  close.setAttribute('aria-label', 'Close')
+  close.innerHTML = '<span></span><span></span>'
 
   controls.appendChild(prev)
   controls.appendChild(next)
@@ -116,6 +117,10 @@ export const initLightbox = () => {
       img.src = item.src
       img.alt = ''
       img.className = 'lightbox-image'
+      img.addEventListener('click', () => {
+        if (!items.length) return
+        showItem((currentIndex + 1) % items.length)
+      })
       mediaEl.appendChild(img)
     }
 

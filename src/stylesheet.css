@@ -200,6 +200,10 @@ h2 {
   max-width: 500px;
 }
 
+.contact-link__title {
+  color: #070707;
+}
+
 #sanity-posts {
   margin-top: 16px;
 }
@@ -380,6 +384,7 @@ h2 {
   max-height: 80vh;
   width: auto;
   height: auto;
+  cursor: pointer;
 }
 
 .lightbox-caption {
@@ -393,6 +398,7 @@ h2 {
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+  max-width: 70vw;
 }
 
 .lightbox-caption-item {
@@ -407,30 +413,64 @@ h2 {
 }
 
 .lightbox-controls {
-  position: fixed;
-  left: 50%;
-  bottom: 20px;
-  z-index: 2;
-  display: flex;
-  gap: 30px;
-  transform: translateX(-50%);
+  display: contents;
 }
 
-.lightbox-controls button,
-.lightbox-close {
+.lightbox-controls button {
   background: transparent;
   border: none;
   color: #ffffff;
-  font-family: "Junicode", serif;
-  font-style: italic;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 300;
   font-size: 14pt;
   cursor: pointer;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  bottom: 20px;
+  z-index: 2;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
 }
 
 .lightbox-close {
   position: fixed;
   top: 20px;
   right: 20px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.lightbox-close span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 24px;
+  height: 1px;
+  background: #ffffff;
+  transform-origin: center;
+}
+
+.lightbox-close span:first-child {
+  transform: rotate(45deg);
+}
+
+.lightbox-close span:last-child {
+  transform: rotate(-45deg);
 }
 
 .lightbox-controls button:disabled {
@@ -567,18 +607,32 @@ body.upcoming-open {
 
 .upcoming-panel__close {
   align-self: flex-end;
-  text-align: left;
-  width: 100%;
+  position: relative;
+  width: 24px;
+  height: 24px;
   background: none;
   border: none;
   padding: 0;
-  font-family: "Junicode", serif;
-  font-style: italic;
-  font-size: 14pt;
   cursor: pointer;
-  padding-bottom: 5px;
   margin-bottom: 10px;
-  border-bottom: #181818 dotted 1px;
+}
+
+.upcoming-panel__close span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 24px;
+  height: 1px;
+  background: #000000;
+  transform-origin: center;
+}
+
+.upcoming-panel__close span:first-child {
+  transform: rotate(45deg);
+}
+
+.upcoming-panel__close span:last-child {
+  transform: rotate(-45deg);
 }
 
 .upcoming-panel__list {
