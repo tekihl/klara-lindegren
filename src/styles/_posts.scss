@@ -1,0 +1,38 @@
+@use './variables' as *;
+
+/* Posts */
+.posts-section {
+    padding: 40px 0 20px;
+}
+
+#sanity-posts {
+    margin-top: 16px;
+}
+
+.posts-loading,
+.posts-empty,
+.posts-error {
+    font-size: 16px;
+    color: $soft-color;
+}
+
+.posts-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.post-card {
+    border: 1px solid $soft-color;
+    padding: 16px;
+    background: $background-color;
+}
+
+.post-card h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: $soft-color;
+}

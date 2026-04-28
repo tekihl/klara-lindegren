@@ -1,0 +1,156 @@
+@use './variables' as *;
+
+/* Upcoming */
+.upcoming-wrapper {
+    width: auto;
+}
+
+body.upcoming-open {
+    overflow: hidden;
+}
+
+.upcoming-panel {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 900;
+    display: none;
+}
+
+.upcoming-panel.is-ready {
+    display: block;
+}
+
+.upcoming-panel__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.upcoming-panel__sheet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(360px, 90vw);
+    background: #ffffff;
+    padding: 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    box-shadow: -12px 0 30px rgba(0, 0, 0, 0.08);
+}
+
+.upcoming-panel.is-open {
+    pointer-events: auto;
+}
+
+.upcoming-panel.is-open .upcoming-panel__backdrop {
+    opacity: 1;
+}
+
+.upcoming-panel.is-open .upcoming-panel__sheet {
+    transform: translateX(0);
+}
+
+.upcoming-panel__close {
+    align-self: flex-end;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.upcoming-panel__close span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 24px;
+    height: 1px;
+    background: #000000;
+    transform-origin: center;
+}
+
+.upcoming-panel__close span:first-child {
+    transform: rotate(45deg);
+}
+
+.upcoming-panel__close span:last-child {
+    transform: rotate(-45deg);
+}
+
+.upcoming-panel__list {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.upcoming-entry {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.upcoming-past-heading {
+    color: #000000;
+    font-size: 12pt;
+    font-weight: 400;
+    text-align: center;
+    margin: 12px 0 -12px;
+    text-transform: capitalize;
+    font-style: normal;
+}
+
+.upcoming-past-divider {
+    width: 100%;
+    border-top: 1px dashed #000000;
+    margin: -8px 0 0;
+}
+
+.upcoming-entry--past {
+    color: $soft-color;
+}
+
+.upcoming-date {
+    font-size: 12pt;
+    font-weight: 800;
+}
+
+.upcoming-title {
+    font-size: 12pt;
+    font-style: italic;
+}
+
+.upcoming-work,
+.upcoming-location,
+.upcoming-description {
+    font-size: 12pt;
+}
+
+.upcoming-link {
+    font-size: 12pt;
+    text-decoration: underline;
+    color: inherit;
+}
+
+@media screen and (max-width: calc(45px + $main-width)) {
+    .upcoming-wrapper {
+        position: fixed;
+        right: 30px;
+        bottom: 25px;
+        z-index: 20;
+    }
+}

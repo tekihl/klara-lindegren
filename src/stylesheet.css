@@ -8,14 +8,6 @@
 
 @font-face {
   font-family: "Junicode";
-  src: url("/src/assets/fonts/junicode/junicode-lightitalic.otf") format("opentype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
@@ -32,33 +24,9 @@
 
 @font-face {
   font-family: "Junicode";
-  src: url("/src/assets/fonts/junicode/junicode-medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Junicode";
-  src: url("/src/assets/fonts/junicode/junicode-mediumitalic.otf") format("opentype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Junicode";
   src: url("/src/assets/fonts/junicode/junicode-bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Junicode";
-  src: url("/src/assets/fonts/junicode/junicode-bolditalic.otf") format("opentype");
-  font-weight: 700;
-  font-style: italic;
   font-display: swap;
 }
 
@@ -121,7 +89,7 @@ h2 {
 }
 
 .hero-mainpage {
-  background-image: url("/src/assets/images/IMG_5157.JPG");
+  background-image: url("/src/assets/images/klara-hero.jpg");
 }
 
 .hero-overlay {
@@ -305,6 +273,8 @@ h2 {
   cursor: pointer;
   position: relative;
   flex: 0 0 auto;
+  width: min(500px, 95vw);
+  height: 320px;
 }
 
 .media-more-overlay {
@@ -329,23 +299,25 @@ h2 {
 }
 
 .media-image {
-  flex: 0 0 auto;
-  height: 320px;
-  width: auto;
-  max-width: 80vw;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   display: block;
 }
 
 .media-video-placeholder {
-  height: 320px;
-  width: 480px;
-  max-width: 80vw;
+  width: 100%;
+  height: 100%;
   background: #111111;
 }
 
 @media screen and (max-width: 720px) {
+  .media-thumb {
+    height: 64vw;
+    max-height: 320px;
+  }
+
   .media-more-overlay.is-scroll-visible {
     opacity: 1;
   }
@@ -660,13 +632,33 @@ body.upcoming-open {
 .upcoming-entry {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  text-align: center;
+  gap: 2px;
   text-decoration: none;
   color: #000000;
 }
 
+.upcoming-past-heading {
+  color: #000000;
+  font-size: 12pt;
+  font-weight: 400;
+  text-align: center;
+  margin: 12px 0 -18px;
+}
+
+.upcoming-past-divider {
+  width: 100%;
+  border-top: 1px dashed #000000;
+  margin: -8px 0 0;
+}
+
+.upcoming-entry--past {
+  color: #a6a6a6;
+}
+
 .upcoming-date {
   font-size: 12pt;
+  font-weight: 800;
 }
 
 .upcoming-title {

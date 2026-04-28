@@ -17,6 +17,26 @@ const fetchSanity = async <T>(query: string): Promise<T> => {
 
 const descriptionFadeMs = 500
 
+const lockDescriptionHeight = (
+  text: HTMLElement,
+  descriptions: Record<'swe' | 'eng', string>,
+  activeText: string,
+) => {
+  const heights = Object.values(descriptions)
+    .filter(Boolean)
+    .map((description) => {
+      text.textContent = description
+      return text.scrollHeight
+    })
+
+  const maxHeight = Math.max(...heights)
+  if (Number.isFinite(maxHeight)) {
+    text.style.minHeight = `${maxHeight}px`
+  }
+
+  text.textContent = activeText
+}
+
 export const renderResume = async () => {
   const descriptionEl = document.querySelector<HTMLElement>('#resume-description')
   if (!descriptionEl) {
@@ -104,6 +124,9 @@ export const renderResume = async () => {
     tabs.appendChild(createTab('eng', 'English'))
     descriptionEl.appendChild(tabs)
     descriptionEl.appendChild(text)
+    window.requestAnimationFrame(() => {
+      lockDescriptionHeight(text, descriptions, initialText)
+    })
   } catch (error) {
     console.error(error)
   }

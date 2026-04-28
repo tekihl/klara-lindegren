@@ -1,0 +1,91 @@
+@use './variables' as *;
+
+/* Resume */
+.resume-section {
+    display: flex;
+    width: 100vw;
+    min-height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14pt;
+    max-width: 100vw;
+    padding: 30px;
+}
+
+.resume-category {
+    max-width: none;
+
+    h2 {
+        margin-bottom: 10px;
+    }
+}
+
+.desc-edu-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#resume-description {
+    max-width: 500px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.resume-description-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.resume-description-tab {
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: $primary-color;
+    font-family: 'Junicode', serif;
+    font-size: 14pt;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.resume-description-tab:not(.is-active) {
+    color: $soft-color;
+}
+
+.resume-description-text {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    white-space: pre-line;
+}
+
+.resume-description-text.is-visible {
+    opacity: 1;
+}
+
+.resume-entry {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5em;
+}
+
+.resume-title {
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.resume-year {
+    font-weight: 400;
+}
+
+@media screen and (max-width: calc(45px + $main-width)) {
+    .resume-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 30px;
+        gap: 30px;
+    }
+}
