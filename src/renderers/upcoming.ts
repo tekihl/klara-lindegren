@@ -77,6 +77,19 @@ const renderEntry = (item: UpcomingEntry, isPast = false) => {
   return entry
 }
 
+const renderSectionHeading = (text: string) => {
+  const heading = document.createElement('h2')
+  heading.className = 'upcoming-section-heading'
+  heading.textContent = text
+  return heading
+}
+
+const renderSectionDivider = () => {
+  const divider = document.createElement('div')
+  divider.className = 'upcoming-section-divider'
+  return divider
+}
+
 export const renderUpcoming = async () => {
   const list = document.querySelector<HTMLElement>('#upcoming-list')
   if (!list) {
@@ -106,19 +119,18 @@ export const renderUpcoming = async () => {
         return bTime - aTime
       })
 
-    upcomingItems.forEach((item) => {
-      list.appendChild(renderEntry(item))
-    })
+    if (upcomingItems.length) {
+      list.appendChild(renderSectionHeading('kommande'))
+      list.appendChild(renderSectionDivider())
+
+      upcomingItems.forEach((item) => {
+        list.appendChild(renderEntry(item))
+      })
+    }
 
     if (pastItems.length) {
-      const heading = document.createElement('h2')
-      heading.className = 'upcoming-past-heading'
-      heading.textContent = 'tidigare föreställningar'
-      list.appendChild(heading)
-
-      const divider = document.createElement('div')
-      divider.className = 'upcoming-past-divider'
-      list.appendChild(divider)
+      list.appendChild(renderSectionHeading('tidigare'))
+      list.appendChild(renderSectionDivider())
 
       pastItems.forEach((item) => {
         list.appendChild(renderEntry(item, true))

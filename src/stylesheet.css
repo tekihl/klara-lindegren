@@ -661,7 +661,7 @@ body.upcoming-open {
   color: #000000;
 }
 
-.upcoming-past-heading {
+.upcoming-section-heading {
   color: #000000;
   font-size: 12pt;
   font-weight: 400;
@@ -669,7 +669,7 @@ body.upcoming-open {
   margin: 12px 0 -18px;
 }
 
-.upcoming-past-divider {
+.upcoming-section-divider {
   width: 100%;
   border-top: 1px dashed #000000;
   margin: -8px 0 0;
