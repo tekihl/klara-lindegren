@@ -36,19 +36,10 @@ export const mediaEntry = defineType({
       of: [{type: 'image'}],
     }),
     defineField({
-      name: 'photographer',
-      title: 'Photographer',
-      type: 'string',
-    }),
-    defineField({
-      name: 'extraLineOne',
-      title: 'Free Line 1',
-      type: 'string',
-    }),
-    defineField({
-      name: 'extraLineTwo',
-      title: 'Free Line 2',
-      type: 'string',
+      name: 'credits',
+      title: 'Credits',
+      type: 'array',
+      of: [{type: 'string'}],
     }),
     defineField({
       name: 'date',

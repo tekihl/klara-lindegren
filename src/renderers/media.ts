@@ -10,9 +10,7 @@ type MediaEntry = {
   _id: string
   title?: string
   description?: string
-  photographer?: string
-  extraLineOne?: string
-  extraLineTwo?: string
+  credits?: string[]
   date?: string
   images?: MediaImage[]
   videoEmbeds?: string[]
@@ -61,11 +59,10 @@ const formatYear = (date?: string) => {
 }
 
 const buildCaption = (item: MediaEntry) => {
-  const photographerLine = [
-    item.photographer ? `Photographer: ${item.photographer}` : undefined,
-    item.extraLineOne,
-    item.extraLineTwo,
-  ].filter((part): part is string => Boolean(part && part.trim()))
+  const creditsLine = (item.credits ?? [])
+    .map((credit) => credit.trim())
+    .filter(Boolean)
+    .join('##')
   const detailsLine = [
     formatYear(item.date),
     item.title,
@@ -73,8 +70,8 @@ const buildCaption = (item: MediaEntry) => {
   ].filter((part): part is string => Boolean(part && part.trim()))
 
   return [
-    photographerLine.join(' - '),
     detailsLine.join(' - '),
+    creditsLine,
   ].filter(Boolean).join('||')
 }
 
@@ -118,7 +115,7 @@ export const renderMediaEntries = async () => {
   }
 
   const query =
-    '*[_type == "mediaEntry"]|order(date desc){_id,title,description,photographer,extraLineOne,extraLineTwo,date,images[]{asset->{url}},videoEmbeds,videoThumbnails[]{asset->{url}}}'
+    '*[_type == "mediaEntry"]|order(date desc){_id,title,description,credits,date,images[]{asset->{url}},videoEmbeds,videoThumbnails[]{asset->{url}}}'
 
   try {
     const items = await fetchSanity<MediaEntry[]>(query)

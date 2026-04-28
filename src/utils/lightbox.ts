@@ -98,10 +98,22 @@ export const initLightbox = () => {
       captionEl.innerHTML = ''
       const parts = (item.caption ?? '').split('||').map((part) => part.trim()).filter(Boolean)
       parts.forEach((part) => {
-        const span = document.createElement('span')
-        span.className = 'lightbox-caption-item'
-        span.textContent = part
-        captionEl.appendChild(span)
+        if (part.includes('##')) {
+          const credits = document.createElement('span')
+          credits.className = 'lightbox-caption-item lightbox-caption-credits'
+          part.split('##').map((credit) => credit.trim()).filter(Boolean).forEach((credit) => {
+            const creditEl = document.createElement('span')
+            creditEl.className = 'lightbox-caption-credit'
+            creditEl.textContent = credit
+            credits.appendChild(creditEl)
+          })
+          captionEl.appendChild(credits)
+        } else {
+          const span = document.createElement('span')
+          span.className = 'lightbox-caption-item'
+          span.textContent = part
+          captionEl.appendChild(span)
+        }
       })
     }
 
