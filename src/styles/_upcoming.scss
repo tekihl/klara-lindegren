@@ -36,7 +36,7 @@ body.upcoming-open {
     height: 100%;
     width: min(320px, 90vw);
     background: #ffffff;
-    padding: 20px 20px 50px 30px;
+    padding: 20px 20px 0px 30px;
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -93,6 +93,8 @@ body.upcoming-open {
     gap: 25px;
     overflow-y: auto;
     padding-right: 8px;
+    padding-top: 30px;
+    padding-bottom: 65px;
 }
 
 .upcoming-entry {
@@ -107,19 +109,25 @@ body.upcoming-open {
 .upcoming-section-heading {
     color: #000000;
     font-size: 12pt;
-    font-weight: 600;
-    text-align: center;
+    font-weight: 400;
+    text-align: left;
     text-decoration: none;
     margin: 10px 0px -0px;
     text-transform: capitalize;
-    font-style:italic;
+    font-style: italic;
+    display:none;
+}
+
+.upcoming-entry+.upcoming-section-heading {
+    margin-top: 35px;
+    margin-bottom: 5px;
 }
 
 .upcoming-section-divider {
     width: 100%;
     border-top: 1px dashed #000000;
-    margin: 0px 0px 15px;
-    display: none;
+    margin: 15px 0px 15px;
+    display: visible;
 }
 
 .upcoming-entry--past {

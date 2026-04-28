@@ -121,7 +121,6 @@ export const renderUpcoming = async () => {
 
     if (upcomingItems.length) {
       list.appendChild(renderSectionHeading('kommande'))
-      list.appendChild(renderSectionDivider())
 
       upcomingItems.forEach((item) => {
         list.appendChild(renderEntry(item))

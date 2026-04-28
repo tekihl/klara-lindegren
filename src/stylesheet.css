@@ -687,6 +687,10 @@ body.upcoming-open {
   margin: 12px 0 -18px;
 }
 
+.upcoming-entry + .upcoming-section-heading {
+  margin-top: 35px;
+}
+
 .upcoming-section-divider {
   width: 100%;
   border-top: 1px dashed #000000;
