@@ -57,3 +57,21 @@
         padding: 30px 0 100px;
     }
 }
+
+@media screen and (max-width: 350px) {
+    .reviews-wrapper {
+        gap: 34px;
+        padding: 25px 16px 90px;
+    }
+
+    .review-card {
+        width: 100%;
+        max-width: 300px;
+        gap: 10px;
+    }
+
+    .review-heading,
+    .review-citation {
+        font-size: 12pt;
+    }
+}

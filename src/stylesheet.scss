@@ -210,6 +210,18 @@ h2 {
     }
 }
 
+@media screen and (max-width: 350px) {
+    .hero-menu {
+        align-items: flex-start;
+    }
+
+    .hero-menu .nav-wrapper {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 6px 14px;
+    }
+}
+
 // music notes drops animation
 
 

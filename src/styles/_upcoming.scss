@@ -34,9 +34,9 @@ body.upcoming-open {
     top: 0;
     right: 0;
     height: 100%;
-    width: min(360px, 90vw);
+    width: min(320px, 90vw);
     background: #ffffff;
-    padding: 30px 30px 30px;
+    padding: 20px 20px 50px 30px;
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -106,18 +106,20 @@ body.upcoming-open {
 
 .upcoming-section-heading {
     color: #000000;
-    font-size: 14pt;
-    font-weight: 400;
-    text-align: left;
-    margin: 15px 0 -22px;
+    font-size: 12pt;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px 0px -0px;
     text-transform: capitalize;
-    font-style: italic;
+    font-style:italic;
 }
 
 .upcoming-section-divider {
     width: 100%;
     border-top: 1px dashed #000000;
-    margin: -8px 0 0;
+    margin: 0px 0px 15px;
+    display: none;
 }
 
 .upcoming-entry--past {
@@ -152,5 +154,21 @@ body.upcoming-open {
         right: 30px;
         bottom: 25px;
         z-index: 20;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .upcoming-panel__sheet {
+        width: min(290px, calc(100vw - 20px));
+        padding-right: 10px;
+        padding-left: 20px;
+    }
+
+    .upcoming-panel__list {
+        padding-right: 0;
+    }
+
+    .upcoming-entry {
+        overflow-wrap: anywhere;
     }
 }

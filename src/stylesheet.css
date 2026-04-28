@@ -536,6 +536,24 @@ h2 {
   }
 }
 
+@media screen and (max-width: 350px) {
+  .reviews-wrapper {
+    gap: 34px;
+    padding: 25px 16px 90px;
+  }
+
+  .review-card {
+    width: 100%;
+    max-width: 300px;
+    gap: 10px;
+  }
+
+  .review-heading,
+  .review-citation {
+    font-size: 12pt;
+  }
+}
+
 .posts-grid {
   display: grid;
   gap: 16px;
@@ -823,6 +841,32 @@ body.upcoming-open {
   .reviews-wrapper {
     gap: 40px 50px;
     padding: 30px 0 100px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .hero-menu {
+    align-items: flex-start;
+  }
+
+  .hero-menu .nav-wrapper {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px 14px;
+  }
+
+  .upcoming-panel__sheet {
+    width: min(290px, calc(100vw - 20px));
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+
+  .upcoming-panel__list {
+    padding-right: 0;
+  }
+
+  .upcoming-entry {
+    overflow-wrap: anywhere;
   }
 }
 
