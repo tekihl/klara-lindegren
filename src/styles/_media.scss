@@ -243,8 +243,8 @@
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 300;
-    font-size: 14pt;
+    font-weight: 100;
+    font-size: 20pt;
     cursor: pointer;
 }
 
@@ -253,14 +253,15 @@
     position: fixed;
     bottom: 20px;
     z-index: 2;
+    padding: 20px;
 }
 
 .lightbox-prev {
-    left: 20px;
+    left: 5px;
 }
 
 .lightbox-next {
-    right: 20px;
+    right: 5px;
 }
 
 .lightbox-close {
