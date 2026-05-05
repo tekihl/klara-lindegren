@@ -24,7 +24,7 @@ const formatDate = (date?: string) => {
   if (!date) return ''
   const parsed = new Date(date)
   if (Number.isNaN(parsed.getTime())) return ''
-  return parsed.toLocaleDateString('en-GB', { day: '2-digit', month: 'long' })
+  return parsed.toLocaleDateString('sv-SE', { day: '2-digit', month: 'long' })
 }
 
 const parseEventDate = (date?: string) => {
