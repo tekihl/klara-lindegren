@@ -3,6 +3,7 @@ import { buildSanityUrl } from './sanityClient'
 type ReviewEntry = {
   _id: string
   sender?: string
+  subTitle?: string
   citation?: string
   link?: string
   date?: string
@@ -32,7 +33,7 @@ export const renderReviews = async () => {
   }
 
   const query =
-    '*[_type == "reviewEntry"]|order(date desc){_id,sender,citation,link,date}'
+    '*[_type == "reviewEntry"]|order(date desc){_id,sender,subTitle,citation,link,date}'
 
   try {
     const items = await fetchSanity<ReviewEntry[]>(query)
@@ -47,6 +48,13 @@ export const renderReviews = async () => {
       const year = formatYear(item.date)
       heading.textContent = year ? `${year} - ${item.sender ?? ''}` : item.sender ?? ''
       card.appendChild(heading)
+
+      if (item.subTitle) {
+        const subTitle = document.createElement('h4')
+        subTitle.className = 'review-subtitle'
+        subTitle.textContent = item.subTitle
+        card.appendChild(subTitle)
+      }
 
       if (item.citation) {
         const quote = document.createElement('p')

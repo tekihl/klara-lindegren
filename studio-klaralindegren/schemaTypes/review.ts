@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const reviewEntry = defineType({
   name: 'reviewEntry',
@@ -10,6 +10,11 @@ export const reviewEntry = defineType({
       title: 'Avsändare',
       type: 'string',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'subTitle',
+      title: 'Sub Title',
+      type: 'string',
     }),
     defineField({
       name: 'citation',
@@ -33,7 +38,7 @@ export const reviewEntry = defineType({
     {
       title: 'Date (Newest)',
       name: 'dateDesc',
-      by: [{field: 'date', direction: 'desc'}],
+      by: [{ field: 'date', direction: 'desc' }],
     },
   ],
 })

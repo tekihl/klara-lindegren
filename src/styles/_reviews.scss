@@ -19,9 +19,16 @@
 }
 
 .review-heading {
+ 
     font-size: 14pt;
     font-weight: 400;
     margin: 0;
+}
+
+.review-subtitle {
+   margin-top: -14px;
+   font-size: 14pt;
+   font-weight: 400;
 }
 
 .review-citation {
@@ -71,6 +78,7 @@
     }
 
     .review-heading,
+    .review-subtitle,
     .review-citation {
         font-size: 12pt;
     }
